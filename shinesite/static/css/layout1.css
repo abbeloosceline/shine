@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #DDDDDD;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav ul {
+    padding: 0;
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: flex-start;
+    list-style-type: none;
+}
+
+nav li {
+    display: block;
+}
+
+nav a {
+    padding: 10px;
+    margin-left: 10px;
+}

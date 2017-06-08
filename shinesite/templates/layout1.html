@@ -1,0 +1,25 @@
+{% import "macros/macros.html" as macro %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block head %}
+        {% endblock %}
+         | shine + rise
+    </title>
+    <link rel="stylesheet" href="static/css/layout1.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            {{ macro.navigatie(navlist=["about"]) }}
+        </ul>
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+
+</body>
+</html>

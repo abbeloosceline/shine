@@ -1,0 +1,17 @@
+{% macro navigatie(navlist) %}
+    {% for element in navlist %}
+            <li>
+                <a href="{{ url_for(element.lower()) }}">{{ element }}</a>
+            </li>
+    {% endfor %}
+    <li>
+        <a href="http://www.github.com/" target="_blank">
+            <img src="static/images/githubicon.png" alt="see on github" width="30px">
+        </a>
+    </li>
+    <li>
+        <a href="http://www.youtube.com/" target="_blank">
+            <img src="static/images/youtubeicon.png" alt="see on youtube" width="30px">
+        </a>
+    </li>
+{% endmacro %}

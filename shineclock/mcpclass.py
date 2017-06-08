@@ -1,14 +1,12 @@
-import spidev
-GPIO.setmode(GPIO.BCM)
-
 class Mcp3008:
+    import spidev
+    GPIO.setmode(GPIO.BCM)
     spi = spidev.SpiDev()
 
     def __init__(self, bus, device, channel):
         self.__bus = bus
         self.__device = device
         self.__channel = channel
-
         Mcp3008.spi.open(bus, device)
 
     @property
@@ -28,12 +26,3 @@ class Mcp3008:
         adc = Mcp3008.spi.xfer2([1, (8 + self.__channel) << 4, 0])
         data = ((adc[1] & 3) << 8) + adc[2]
         return data
-
-
-def inlezen_licht():
-    lichtsensor = Mcp3008(0, 1, 0) #bus 0 dev 1 ch 0
-    lichtwaarde = lichtsensor.readChannel()
-    print (lichtwaarde)
-    return lichtwaarde
-
-inlezen_licht()

@@ -1,4 +1,5 @@
 {% import "macros/macros.html" as macro %}
+<!-- Home + error -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,12 +15,27 @@
 <body>
     <nav>
         <ul>
-            {{ macro.navigatie(navlist=["about"]) }}
+            {{ macro.navigatie(navlist=["alarms", "nights", "sleepcharts", "settings", "about"]) }}
         </ul>
     </nav>
 
     {% block body %}
     {% endblock %}
+
+    <div class="menu">
+        <div class="icon">
+            <a href="{{ url_for('alarms') }}">
+                <img src="static/images/iconsun.png" alt="sun">
+                <h3>your alarms</h3>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="{{ url_for('nights') }}">
+               <img src="static/images/iconmoon.png" alt="moon">
+               <h3>your nights</h3>
+            </a>
+        </div>
+    </div>
 
 </body>
 </html>

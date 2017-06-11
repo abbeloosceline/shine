@@ -1,0 +1,27 @@
+{% extends 'layout3.html' %}
+
+{% block head %}
+    alarms
+{% endblock %}
+
+{% block nav %}
+    <h1>Your alarm is set to </h1>
+    <h2>Try to go to sleep at </h2>
+{% endblock %}
+
+{% block body %}
+    <a href="{{ url_for('addalarm') }}"><img src="static/images/iconsunadd.png" alt="add alarm"></a>
+    {{ macro.monthpicker() }}
+    <div class="holder">
+        <div class="calendar">
+            <table>
+                {{ macro.calender(month=6) }}
+            </table>
+        </div>
+        <div class="expl">
+            <p>
+                Lorem ipsum dolor sit amet.
+            </p>
+        </div>
+    </div>
+{% endblock %}

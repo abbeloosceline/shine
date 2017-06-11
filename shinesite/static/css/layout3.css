@@ -1,0 +1,76 @@
+html, body
+{
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #FcFbFa;
+    text-align: center;
+}
+
+nav {
+    padding: 5px;
+}
+
+nav ul {
+    padding: 0;
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: center;
+    list-style-type: none;
+}
+
+nav li {
+    display: block;
+}
+
+nav a {
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #FcFbFa;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+h2 {
+    font-size: 21px;
+}
+
+.holder {
+    display: flex;
+    flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.calendar {
+    width: 600px;
+    padding-right: 25px;
+}
+
+.expl {
+    width: 600px;
+    padding-left: 25px;
+    text-align: left;
+}
+
+.layout3nav {
+    background: #e6aa00;
+}
+
+.extranav {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}

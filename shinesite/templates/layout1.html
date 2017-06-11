@@ -1,4 +1,5 @@
 {% import "macros/macros.html" as macro %}
+<!-- Onboarding + about  -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +19,15 @@
         </ul>
     </nav>
 
-    {% block body %}
-    {% endblock %}
+    <div class="layout1desc">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+
+    <div class="layout1img">
+        <img src="static/images/wekker.jpg" alt="alarm clock">
+    </div>
 
 </body>
 </html>

@@ -1,0 +1,17 @@
+{% extends 'layout3.html' %}
+
+{% block head %}
+    nights
+{% endblock %}
+
+{% block nav %}
+    <h1>Your alarm is set to </h1>
+    <h2>Try to go to sleep at </h2>
+{% endblock %}
+
+{% block body %}
+<a href="{{ url_for('addalarm') }}"><img src="static/images/iconmoonadd.png" alt="add alarm"></a>
+<p class="description">
+    Description lorem ipsum dolor sit amet.
+</p>
+{% endblock %}

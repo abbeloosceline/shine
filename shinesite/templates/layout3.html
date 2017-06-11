@@ -1,0 +1,33 @@
+{% import "macros/macros.html" as macro %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block head %}
+        {% endblock %}
+         | shine + rise
+    </title>
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/layout3.css") }}">
+</head>
+<body>
+    <div class="layout3nav">
+        <nav>
+            <ul>
+                {{ macro.navigatie(navlist=["alarms", "nights", "sleepcharts", "settings", "about"]) }}
+            </ul>
+        </nav>
+        <div class="extranav">
+            {% block nav %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <div class="layout3body">
+    {% block body %}
+    {% endblock %}
+    </div>
+
+</body>
+</html>

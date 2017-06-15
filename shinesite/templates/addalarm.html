@@ -1,0 +1,47 @@
+{% extends 'layout3.html' %}
+
+{% block head %}
+    alarms
+{% endblock %}
+
+{% block body %}
+    {{ macro.monthpicker() }}
+    <div class="holder">
+        <form>
+            <input name="date" type="date" value="date">
+            <p>or</p>
+            <input name="monday" type="checkbox" value="monday">
+            <label>mon</label>
+            <input name="tuesday" type="checkbox" value="tuesday">
+            <label>tue</label>
+            <input name="wednesday" type="checkbox" value="wednesday">
+            <label>wen</label>
+            <input name="thursday" type="checkbox" value="thursday">
+            <label>thu</label>
+            <input name="friday" type="checkbox" value="friday">
+            <label>fri</label>
+            <input name="saturday" type="checkbox" value="saturday">
+            <label>sat</label>
+            <input name="sunday" type="checkbox" value="sunday">
+            <label>sun</label>
+
+                <hr>
+            <input name="earliest" type="time" value="earliest">
+            <input name="ideal" type="time" value="ideal">
+            <input name="latest" type="time" value="latest">
+                <br>
+            <label>Simulate a sunrise?</label>
+            <input name="sunrise" type="checkbox" value="sunrise">
+                <br>
+            <label>Snoozing available?</label>
+            <input name="snooze" type="checkbox" value="snooze">
+                <br>
+            <select name="music">
+                  <option value="" disabled>add music options via settings</option>
+                {{ macro.options(list=["a", "b", "c"]) }}
+            </select>
+                <br>
+            <input type="submit" value="add alarm">
+        </form>
+    </div>
+{% endblock %}

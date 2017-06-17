@@ -1,4 +1,5 @@
 import mysql.connector as connector
+import datetime
 
 
 class DbClass:
@@ -70,6 +71,33 @@ class DbClass:
         return result
 
 
+    def getAlarmToday(self):
+        result = self.getAlarmTodayUnique()
+        if result:
+            result = result[7]
+            uren = int(result[0:2])
+            minuten = int(result[3:5])
+            wait = datetime.datetime(2000, 1, 1, uren, minuten, 0)
+            wakeup1 = wait - datetime.timedelta(hours=9, minutes=15)
+            wakeup2 = wait - datetime.timedelta(hours=7, minutes=45)
+            alarm = "Your alarm is set to " + str(result)[0:5]
+            wakeup = "Try to go to sleep at " + str(wakeup1)[11:16] + " or " + str(wakeup2)[11:16] + "."
+            return alarm, wakeup
+        else:
+            result = self.getAlarmTodayWeek()
+            if result:
+                result = result[7]
+                uren = int(result[0:2])
+                minuten = int(result[3:5])
+                wait = datetime.datetime(2000, 1, 1, uren, minuten, 0)
+                wakeup1 = wait - datetime.timedelta(hours=9, minutes=15)
+                wakeup2 = wait - datetime.timedelta(hours=7, minutes=45)
+                alarm = "Your alarm is set to " + str(result)[0:5]
+                wakeup = "Try to go to sleep at " + str(wakeup1)[11:16] + " or " + str(wakeup2)[11:16] + "."
+                return alarm, wakeup
+            else: return "You don't have an alarm set!", "Go to alarms to create a new alarm."
+
+
     def getUniqueAlarm(self, alarmdate):
         self.__connection = connector.connect(**self.__dsn)
         self.__cursor = self.__connection.cursor()
@@ -93,18 +121,20 @@ class DbClass:
     def setAlarm(self):
         self.__connection = connector.connect(**self.__dsn)
         self.__cursor = self.__connection.cursor()
-        sqlQuery = "INSERT INTO `shinedb`.`alarms` (`idalarms`, `sunrise`, `snooze`, `sound_idsound`, `earliest`, `ideal`, `latest`) VALUES ('5', '1', '1', '3', '07:00:00', '07:00:00', '08:00:00');"
-        self.__cursor.execute(sqlCommand)
+        sqlQuery = "INSERT INTO `shinedb`.`alarms` (`sunrise`, `snooze`, `sound_idsound`, `earliest`, `ideal`, `latest`) VALUES ('1', '1', '3', '07:00:00', '07:00:00', '08:00:00');"
+        self.__cursor.execute(sqlQuery)
         self.__connection.commit()
         self.__cursor.close()
 
+    def setUniqueAlarm(self, alarm, alarmdate):
+        pass
 
-
-hey = DbClass()
-who = hey.getAlarmTodayUnique()
-what = hey.getAlarmTodayWeek()
-where = hey.getSounds()
-print(who)
-print(what)
-print(where)
-
+    def setAlarmWeek(self, alarm, weekdays):
+        for i in range(7):
+            if weekdays[i] == 1:
+                self.__connection = connector.connect(**self.__dsn)
+                self.__cursor = self.__connection.cursor()
+                sqlQuery = ";"
+                self.__cursor.execute(sqlQuery)
+                self.__connection.commit()
+                self.__cursor.close()

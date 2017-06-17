@@ -9,7 +9,7 @@ html, body
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Bree Serif', 'Arial', sans-serif;
     background: #FcFbFa;
     text-align: center;
 }
@@ -45,7 +45,9 @@ a {
 
 h1 {
     padding-top: 100px;
-    font-size: 45px;
+    font-size: 55px;
+    font-weight: bold;
+    letter-spacing: 0.03em;
 }
 
 h2 {

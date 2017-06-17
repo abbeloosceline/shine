@@ -66,6 +66,17 @@ h2 {
     text-align: left;
 }
 
+td {
+    background: #cbc7b3;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    margin: 8px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 15px;
+}
+
 .layout3nav {
     background: #e6aa00;
 }

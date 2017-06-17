@@ -22,20 +22,20 @@ class SegmentClass():
         segments = [16, 12, 24, 23, 18, 20, 21]
         for segment in segments:
             GPIO.setup(segment, GPIO.OUT)
-            GPIO.output(segment, True)
+            GPIO.output(segment, False)
         digits = [6, 13, 19, 26]
         for digit in digits:
             GPIO.setup(digit, GPIO.OUT)
-            GPIO.output(digit, False)
+            GPIO.output(digit, True)
 
     def writedigit(self, digit):
-        GPIO.output(digits[digit-1], True)
-        time.sleep(VierxZevenSegmentDisplay.delay)
         GPIO.output(digits[digit-1], False)
+        time.sleep(VierxZevenSegmentDisplay.delay)
+        GPIO.output(digits[digit-1], True)
 
     def cleardisplay(self):
         for x in segments:
-            GPIO.output(x, True)
+            GPIO.output(x, False)
 
     def writesegment(self, number):
         byte = numbers[number]

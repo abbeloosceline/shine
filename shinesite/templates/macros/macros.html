@@ -24,6 +24,6 @@
 
 {% macro options(list) %}
     {% for element in list %}
-        <option>{{ element }}</option>
+        <option name="music {{ element }}">{{ element }}</option>
     {% endfor %}
 {% endmacro %}

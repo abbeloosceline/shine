@@ -2,6 +2,7 @@ from RPi import GPIO
 import time
 GPIO.setmode(GPIO.BCM)
 
+
 class LEDclass():
 
     def __init__(self, r, g, b):
@@ -39,10 +40,9 @@ class LEDclass():
             time.sleep(delay)
 
     def breathing(self):
-        strenghts = [1000, 900, 800, 700, 600, 500, 400, 300, 200, 200]
-        for i in strengths:
-            self.fadein(7, i)
-            self.fadeout(4, i)
+        for i in [700, 600, 500, 400, 300, 250, 200, 150, 100, 75, 50, 25]:
+            self.fadein(5, i)
+            self.fadeout(3, i)
             time.sleep(1)
 
     def sundown(self):

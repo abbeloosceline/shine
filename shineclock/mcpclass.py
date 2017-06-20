@@ -1,7 +1,7 @@
 from RPi import GPIO
 import time
 
-class Mcp3008:
+class MCP3008:
     import spidev
     GPIO.setmode(GPIO.BCM)
     spi = spidev.SpiDev()
@@ -9,7 +9,8 @@ class Mcp3008:
     def __init__(self, bus, device):
         self.__bus = bus
         self.__device = device
-        Mcp3008.spi.open(bus, device)
+        MCP3008.spi.open(bus, device)
+
 
     @property
     def bus(self):
@@ -24,11 +25,28 @@ class Mcp3008:
         return self.__channel
 
     #inlezen van die kanaal (moet int tss 0-7 zijn)
-    def readChannel(self, channel):
-        adc = Mcp3008.spi.xfer2([1, (8 + channel) << 4, 0])
+    def readChannelValue(self, channel):
+        adc = MCP3008.spi.xfer2([1, (8 + channel) << 4, 0])
         data = ((adc[1] & 3) << 8) + adc[2]
         return data
 
-hey = Mcp3008(0,0)
-who = hey.readChannel(0)
-print(who)
+    def readLight(self):
+        value = self.readChannelValue(0)
+        if value > 600:
+            return True
+        else:
+            return False
+
+    def readLeftButton(self):
+        value = self.readChannelValue(1)
+        if value > 600:
+            return True
+        else:
+            return False
+
+    def readRightButton(self):
+        value = self.readChannelValue(2)
+        if value > 600:
+            return True
+        else:
+            return False

@@ -9,7 +9,8 @@ html, body
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Bree Serif', serif;
+    letter-spacing: 0.03em;
     background: #FcFbFa;
     text-align: center;
 }
@@ -79,6 +80,10 @@ td {
 
 .layout3nav {
     background: #e6aa00;
+}
+
+.layout3body {
+    font-family: 'Cambay', sans-serif;
 }
 
 .extranav {

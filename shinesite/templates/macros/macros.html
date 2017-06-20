@@ -1,26 +1,37 @@
 {% macro navigatie(navlist) %}
+    <li>
+        <a href="{{ url_for('home') }}" style="color: black; font-size: 21px;">shine+rise</a>
+    </li>
     {% for element in navlist %}
             <li>
                 <a href="{{ url_for(element.lower()) }}">{{ element }}</a>
             </li>
     {% endfor %}
     <li>
-        <a href="http://www.github.com/" target="_blank">
+        <a href="https://github.com/abbeloosceline/shine/" target="_blank">
             <img src="/static/images/githubicon.png" alt="see on github" width="30px">
         </a>
     </li>
     <li>
         <a href="http://www.youtube.com/" target="_blank">
-            <img src="/static/images/youtubeicon.png" alt="see on youtube" width="30px" style="margin-right: 15px;">
+            <img src="/static/images/youtubeicon.png" alt="see on youtube" width="30px">
+        </a>
+    </li>
+    <li>
+        <a href="http://student.howest.be/celine.abbeloos/portfolio/" target="_blank">
+            <img src="/static/images/wordpressicon.png" alt="see on youtube" width="30px" style="margin-right: 15px;">
         </a>
     </li>
 {% endmacro %}
 
+
 {% macro calender(month) %}
 {% endmacro %}
 
+
 {% macro monthpicker() %}
 {% endmacro %}
+
 
 {% macro options(list) %}
     {% for element in list %}
